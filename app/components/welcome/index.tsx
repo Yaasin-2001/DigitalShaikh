@@ -82,7 +82,7 @@ const Welcome: FC<IWelcomeProps> = ({
 
   const renderHeader = () => {
     return (
-      <div className='absolute top-0 left-0 right-0 flex items-center justify-between border-b border-gray-100 mobile:h-12 tablet:h-16 px-8 bg-white'>
+      <div className='absolute top-0  right-0 flex items-end justify-between border-b border-gray-100 mobile:h-10 tablet:h-13 px-8 bg-white'>
         <div className='text-gray-900'>{conversationName}</div>
       </div>
     )
@@ -92,7 +92,7 @@ const Welcome: FC<IWelcomeProps> = ({
     return (
       <div className='space-y-3'>
         {promptConfig.prompt_variables.map(item => (
-          <div className='tablet:flex items-start mobile:space-y-2 tablet:space-y-0 mobile:text-xs tablet:text-sm' key={item.key}>
+          <div className='tablet:flex items-end mobile:space-y-2 tablet:space-y-0 mobile:text-xs tablet:text-sm' key={item.key}>
             <label className={`flex-shrink-0 flex items-center tablet:leading-9 mobile:text-gray-700 tablet:text-gray-900 mobile:font-medium pc:font-normal ${s.formLabel}`}>{item.name}</label>
             {item.type === 'select'
               && (
@@ -331,9 +331,9 @@ const Welcome: FC<IWelcomeProps> = ({
               </div>
               : <div>
               </div>}
-            <a className='flex items-center pr-3 space-x-3' href="https://dify.ai/" target="_blank">
-              <span className='uppercase'>{t('app.chat.powerBy')}</span>
-              <FootLogo />
+            <a className='flex items-center pr-3 space-x-3' target="_blank">
+              <span className='uppercase'></span>
+
             </a>
           </div>
         )}

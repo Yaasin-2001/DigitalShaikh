@@ -48,13 +48,14 @@
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
   margin: 0;
-  color: #101828;
+  color: #fff;
   background-color: var(--color-canvas-default);
   font-size: 14px;
   font-weight: 400;
   line-height: 1.5;
   word-wrap: break-word;
 }
+
 
 .light {
   @include light;

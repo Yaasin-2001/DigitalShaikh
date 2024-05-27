@@ -8,6 +8,18 @@ module.exports = {
     typography: require('./typography'),
     extend: {
       colors: {
+        brown: {
+          50: '#fdf6f4',
+          100: '#f7eae5',
+          200: '#e6c9b9',
+          300: '#d5a98c',
+          400: '#b46a33',
+          500: '#7E491D', // Bu rengi kullanabilirsiniz
+          600: '#874200',
+          700: '#713800',
+          800: '#5a2d00',
+          900: '#492400',
+        },
         gray: {
           50: '#F9FAFB',
           100: '#F3F4F6',
@@ -18,6 +30,7 @@ module.exports = {
           700: '#374151',
           800: '#1F2A37',
           900: '#111928',
+          950: '#383838',
         },
         primary: {
           50: '#EBF5FF',
@@ -29,6 +42,7 @@ module.exports = {
         },
         blue: {
           500: '#E1EFFE',
+          400: '#008E87',
         },
         green: {
           50: '#F3FAF7',
@@ -48,6 +62,9 @@ module.exports = {
           100: '#E0EAFF',
           600: '#444CE7',
         },
+        turquoise: {
+          100: '#008E87',
+        }
       },
       screens: {
         mobile: '100px',

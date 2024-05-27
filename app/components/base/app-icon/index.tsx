@@ -11,7 +11,7 @@ export type AppIconProps = {
 }
 
 const AppIcon: FC<AppIconProps> = ({
-  size = 'medium',
+  size = 'large',
   rounded = false,
   background,
   className,
@@ -20,15 +20,20 @@ const AppIcon: FC<AppIconProps> = ({
     <span
       className={classNames(
         style.appIcon,
-        size !== 'medium' && style[size],
-        rounded && style.rounded,
+        size !== 'large' && style[size],
+        //rounded && style.rounded,
         className ?? '',
       )}
       style={{
-        background,
+        backgroundColor: 'transparent',
+        backgroundImage: `url(/images/bar-logo.png)`,
+        backgroundSize: 'contain',
+        backgroundRepeat: 'no-repeat',
+        backgroundPosition: 'right',
+        width: '220px',
+        height: '45px',
       }}
     >
-      🤖
     </span>
   )
 }
