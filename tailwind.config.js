@@ -9,6 +9,7 @@ module.exports = {
     extend: {
       colors: {
         brown: {
+          25: '#DD965B',
           50: '#fdf6f4',
           100: '#f7eae5',
           200: '#e6c9b9',
@@ -31,6 +32,7 @@ module.exports = {
           800: '#1F2A37',
           900: '#111928',
           950: '#383838',
+          960: '#262626',
         },
         primary: {
           50: '#EBF5FF',

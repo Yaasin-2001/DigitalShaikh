@@ -1,18 +1,19 @@
 const translation = {
   common: {
     welcome: 'أهلاً بكم في ',
+    subject: 'الموضوع',
     appUnavailable: 'App is unavailable',
     appUnkonwError: 'App is unavailable',
   },
   chat: {
     newChat: 'محادثة جديدة',
     newChatDefaultName: 'مناقشة جديدة',
-    openingStatementTitle: 'Opening statement',
+    openingStatementTitle: 'البيان الافتتاحي',
     powerBy: 'Powered by',
     prompt: 'Prompt',
-    privatePromptConfigTitle: 'Conversation settings',
+    privatePromptConfigTitle: 'إعدادات المحادثة',
     publicPromptConfigTitle: 'Initial Prompt',
-    configStatusDes: 'Before start, you can modify conversation settings',
+    configStatusDes: 'قبل البدء، يمكنك تعديل إعدادات المحادثة',
     configDisabled:
       'Previous session settings have been used for this session.',
     startChat: 'ابدأ',
@@ -24,9 +25,9 @@ const translation = {
       ' provided by the app developer.',
   },
   errorMessage: {
-    valueOfVarRequired: 'Variables value can not be empty',
+    valueOfVarRequired: '!! تنبيه: يجب اختيار نوع المسألة أولاً',
     waitForResponse:
-      'Please wait for the response to the previous message to complete.',
+      '.الرجاء الانتظار حتى يكتمل الرد على الرسالة السابقة',
   },
 }
 

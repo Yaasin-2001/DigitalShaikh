@@ -83,27 +83,30 @@ const Welcome: FC<IWelcomeProps> = ({
   const renderHeader = () => {
     return (
       <div className='absolute top-0  right-0 flex items-end justify-between border-b border-gray-100 mobile:h-10 tablet:h-13 px-8 bg-white'>
-        <div className='text-gray-900'>{conversationName}</div>
+        <div className='text-gray-900'><strong>{t('app.common.subject')}</strong> : {conversationName}  </div>
       </div>
     )
   }
 
   const renderInputs = () => {
     return (
-      <div className='space-y-3'>
+      <div className='flex flex-col items-center '>
         {promptConfig.prompt_variables.map(item => (
-          <div className='tablet:flex items-end mobile:space-y-2 tablet:space-y-0 mobile:text-xs tablet:text-sm' key={item.key}>
+          <div className='tablet:flex flex-col items-center mobile:space-y-2 tablet:space-y-0 mobile:text-xs tablet:text-sm' key={item.key}>
             <label className={`flex-shrink-0 flex items-center tablet:leading-9 mobile:text-gray-700 tablet:text-gray-900 mobile:font-medium pc:font-normal ${s.formLabel}`}>{item.name}</label>
             {item.type === 'select'
               && (
-                <Select
-                  className='w-full'
-                  defaultValue={inputs?.[item.key]}
-                  onSelect={(i) => { setInputs({ ...inputs, [item.key]: i.value }) }}
-                  items={(item.options || []).map(i => ({ name: i, value: i }))}
-                  allowSearch={false}
-                  bgClassName='bg-gray-50'
-                />
+                <div className='flex space-x-2'>
+                  {(item.options || []).map(i => (
+                    <button
+                      key={i}
+                      className={`px-10 py-2 border rounded-lg ${inputs?.[item.key] === i ? 'bg-turquoise-100 text-white' : 'bg-gray-960 text-white hover:bg-gray-950'}`}
+                      onClick={() => { setInputs({ ...inputs, [item.key]: i }) }}
+                    >
+                      {i}
+                    </button>
+                  ))}
+                </div>
               )}
             {item.type === 'string' && (
               <input
@@ -245,7 +248,7 @@ const Welcome: FC<IWelcomeProps> = ({
             />
             <PromptTemplate html={highLightPromoptTemplate} />
             {isFold && (
-              <div className='flex items-center justify-between mt-3 border-t border-indigo-100 pt-4 text-xs text-indigo-600'>
+              <div className='flex items-center justify-between mt-3 border-t border-indigo-100 pt-4 text-xs text-brown-500'>
                 <span className='text-gray-700'>{t('app.chat.configStatusDes')}</span>
                 <EditBtn onClick={() => setIsFold(false)} />
               </div>
@@ -267,13 +270,14 @@ const Welcome: FC<IWelcomeProps> = ({
       <TemplateVarPanel
         isFold={isFold}
         header={
-          <div className='flex items-center justify-between text-indigo-600'>
-            <PanelTitle
-              title={!isFold ? t('app.chat.privatePromptConfigTitle') : t('app.chat.configStatusDes')}
-            />
+          <div className='flex items-center justify-between text-brown-500'>
             {isFold && (
               <EditBtn onClick={() => setIsFold(false)} />
             )}
+            <PanelTitle
+              title={!isFold ? t('app.chat.privatePromptConfigTitle') : t('app.chat.configStatusDes')}
+            />
+
           </div>
         }
       >
@@ -299,10 +303,12 @@ const Welcome: FC<IWelcomeProps> = ({
     <div className='relative mobile:min-h-[48px] tablet:min-h-[64px]'>
       {hasSetInputs && renderHeader()}
       <div className='mx-auto pc:w-[794px] max-w-full mobile:w-full px-3.5'>
+
         {/*  Has't set inputs  */}
         {
           !hasSetInputs && (
-            <div className='mobile:pt-[72px] tablet:pt-[128px] pc:pt-[200px]'>
+            <div className='mobile:pt-[72px] tablet:pt-[128px] pc:pt-[150px]'>
+
               {hasVar
                 ? (
                   renderVarPanel()
@@ -310,6 +316,7 @@ const Welcome: FC<IWelcomeProps> = ({
                 : (
                   renderNoVarPanel()
                 )}
+
             </div>
           )
         }

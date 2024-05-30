@@ -56,7 +56,7 @@ const Sidebar: FC<ISidebarProps> = ({
               className={classNames(
                 isCurrent
                   ? 'bg-white text-gray-950'
-                  : 'text-gray-700 hover:bg-gray-100 hover:text-gray-700',
+                  : 'text-white hover:bg-gray-100 hover:text-gray-700',
                 'group flex items-center rounded-md px-2 py-2 text-sm font-medium cursor-pointer',
               )}
             >
