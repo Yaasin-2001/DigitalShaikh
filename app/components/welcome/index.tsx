@@ -9,6 +9,7 @@ import type { AppInfo, PromptConfig } from '@/types/app'
 import Toast from '@/app/components/base/toast'
 import Select from '@/app/components/base/select'
 import { DEFAULT_VALUE_MAX_LEN } from '@/config'
+import { FaMoneyBill, FaHandHoldingUsd, FaGlobe } from 'react-icons/fa'
 
 // regex to match the {{}} and replace it with a span
 const regex = /\{\{([^}]+)\}\}/g
@@ -97,12 +98,15 @@ const Welcome: FC<IWelcomeProps> = ({
             {item.type === 'select'
               && (
                 <div className='flex space-x-2'>
-                  {(item.options || []).map(i => (
+                  {(item.options || []).map((i, index) => (
                     <button
                       key={i}
-                      className={`px-10 py-2 border rounded-lg ${inputs?.[item.key] === i ? 'bg-turquoise-100 text-white' : 'bg-gray-960 text-white hover:bg-gray-950'}`}
+                      className={`px-20 py-4 border rounded-lg text-lg ${inputs?.[item.key] === i ? 'bg-turquoise-100 text-white' : 'bg-gray-960 text-white hover:bg-gray-950'}`}
                       onClick={() => { setInputs({ ...inputs, [item.key]: i }) }}
                     >
+                      {index === 0 && <FaMoneyBill className='inline-block mr-2 text-xl' />}
+                      {index === 1 && <FaHandHoldingUsd className='inline-block mr-2 text-xl' />}
+                      {index === 2 && <FaGlobe className='inline-block mr-2 text-xl' />}
                       {i}
                     </button>
                   ))}
